@@ -14,7 +14,7 @@
             <div>{{ auth()->user()->name }}</div>
         </head>
     </header>
-    <h1>Index | Content</h1> <br>
+    <h1>Index | User {{ count($user) !== 'admin' }}</h1> <br>
     <div class="feature-cards-flex">
         @forelse ($user  as $item)
             @if ($item->role !== 'admin')
