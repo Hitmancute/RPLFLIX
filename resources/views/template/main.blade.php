@@ -22,9 +22,9 @@
                 <li class="nav-item"><a href="{{ route('content.index') }}"
                         class="nav-link {{ request()->routeIs('content.*') ? ' active' : '' }}">Content</a></li>
                 @if (auth()->user()->role === 'admin')
-                    <li class="nav-item"><a href="{{ route('admin.genre.index') }}"
+                    <li class="nav-item"><a href="{{ route('genre.index') }}"
                             class="nav-link {{ request()->routeIs('genre.*') ? 'active' : '' }}">Genre</a></li>
-                    <li class="nav-item"><a href="{{ route('admin.user.index') }}"
+                    <li class="nav-item"><a href="{{ route('user.index') }}"
                             class="nav-link {{ request()->routeIs('user.*') ? 'active' : '' }}">User</a></li>
                 @endif
                 <li class="nav-item">

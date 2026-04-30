@@ -12,13 +12,9 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->get('search')){
-            $user = User::where('name','LIKE','%'.$request->get('search').'%')->orWhere('email','LIKE','%'.$request->get('search').'%')->get();
-
-        }else{
-            $user = User::all();
-        }
-        return view('user.index',compact('user'));
+        $search = $request->input('search');
+        $user = User::search($search)->get();
+        return view('user.index',compact('user','search'));
     }
 
     /**

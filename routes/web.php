@@ -25,7 +25,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register', [LoginController::class, 'inregister']);
 
-Route::prefix('admin')->name('admin.')->middleware(['auth','checkRole:admin'])->group(function() {
+Route::middleware(['auth','checkRole:admin'])->group(function() {
     Route::resource('/user',UserController::class);
     Route::resource('/genre',GenreController::class);
 });

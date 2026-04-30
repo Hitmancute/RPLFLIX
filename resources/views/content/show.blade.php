@@ -12,8 +12,8 @@
     </p> <br><br>
     <form action="{{ route('content.destroy', $content->id) }}" method="post" onsubmit="return confrim('are you sure?')">
         @csrf
-        @METHOD('DELETE')
         <button><a href="{{ route('content.edit', $content->id) }}">Edit</a></button>
+        @METHOD('DELETE')
         <button type="submit">Delete</button>
     </form>
 @endsection

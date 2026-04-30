@@ -3,7 +3,7 @@
 @section('content')
     <header class="header">
         <div class="search-bar">
-            <form action="{{ route('admin.user.index') }}" method="get">
+            <form action="{{ route('user.index') }}" method="get">
                 @csrf
                 <input type="text" placeholder="Cari data" name="search">
             </form>
@@ -18,7 +18,7 @@
     <div class="feature-cards-flex">
         @forelse ($user  as $item)
             @if ($item->role !== 'admin')
-                <div class="feature-card-flex" onclick="window.location.href='{{ route('admin.user.show', $item->id) }}'">
+                <div class="feature-card-flex" onclick="window.location.href='{{ route('user.show', $item->id) }}'">
                     <h1>👤</h1>
                     <div style="">
                         <h3>{{ $item->name }}</h3>

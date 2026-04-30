@@ -3,21 +3,21 @@
 @section('content')
     <header class="header">
         <div class="search-bar">
-            <form action="{{ route('admin.genre.index') }}" method="get">
+            <form action="{{ route('genre.index') }}" method="get">
                 @csrf
                 <input type="text" placeholder="Cari data" name="search">
             </form>
         </div>
 
         <head class="header-action">
-            <a href="{{ route('admin.genre.create') }}" class="btn-create">Create New</a>
+            <a href="{{ route('genre.create') }}" class="btn-create">Create New</a>
             <div>{{ auth()->user()->name }}</div>
         </head>
     </header>
 
     <div class="feature-cards-flex">
         @if (request()->query('search'))
-            <p>Hasil pencarian '<strong>{{ request()->query('search') }}</strong>' {{ count($genre) }} hasil <a href="{{ route('admin.genre.index') }}">Reset</a></p>
+            <p>Hasil pencarian '<strong>{{ request()->query('search') }}</strong>' {{ count($genre) }} hasil <a href="{{ route('genre.index') }}">Reset</a></p>
         @endif
 
         @foreach ($genre as $data)
@@ -28,10 +28,10 @@
                 <p>{{ $data->desription }}</p>
             </div>
             <div style="display: block; margin-left: auto;">
-                <form action="{{ route('admin.genre.destroy', $data->id) }}" method="post"
+                <form action="{{ route('genre.destroy', $data->id) }}" method="post"
                     onsubmit="return confrim('are you sure?')" style="flex-direction: row">
                     @csrf
-                    <a class="btn-create" href="{{ route('admin.genre.edit', $data->id) }}">Edit</a>
+                    <a class="btn-create" href="{{ route('genre.edit', $data->id) }}">Edit</a>
                     @method('DELETED')
                     <button class="btn-create btn-danger" type="submit">Delete</button>
                 </form>
